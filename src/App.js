@@ -5,22 +5,28 @@ import './App.css';
 function App() {
     let [내가낸것, 내가낸것변경] = useState(['?']);
     let [상대가낸것, 상대가낸것변경] = useState(['?']);
+    let 가위바위보 = ['가위', '바위', '보'];
+    let [결과, 결과변경] = useState('');
+    var newArray3 = '';
 
     function 가위() {
         var newArray = [...내가낸것];
         newArray[0] = '가위';
         내가낸것변경(newArray);
-        let 가위바위보 = ['가위', '바위', '보'];
+
         var newArray2 = [...상대가낸것];
         newArray2[0] = 가위바위보[Math.floor(Math.random() * 가위바위보.length)];
         상대가낸것변경(newArray2);
 
         if (newArray2[0] === 가위바위보[2]) {
-            console.log('you win');
+            newArray3 = '이겼습니다';
+            결과변경(newArray3);
         } else if (newArray2[0] === 가위바위보[0]) {
-            console.log('try again');
+            newArray3 = '비겼습니다';
+            결과변경(newArray3);
         } else if (newArray2[0] === 가위바위보[1]) {
-            console.log('you lose');
+            newArray3 = '졌습니다';
+            결과변경(newArray3);
         }
     }
 
@@ -28,16 +34,20 @@ function App() {
         var newArray = [...내가낸것];
         newArray[0] = '바위';
         내가낸것변경(newArray);
-        let 가위바위보 = ['가위', '바위', '보'];
+
         var newArray2 = [...상대가낸것];
         newArray2[0] = 가위바위보[Math.floor(Math.random() * 가위바위보.length)];
         상대가낸것변경(newArray2);
+
         if (newArray2[0] === 가위바위보[0]) {
-            console.log('you win');
+            newArray3 = '이겼습니다';
+            결과변경(newArray3);
         } else if (newArray2[0] === 가위바위보[1]) {
-            console.log('try again');
+            newArray3 = '비겼습니다';
+            결과변경(newArray3);
         } else if (newArray2[0] === 가위바위보[2]) {
-            console.log('you lose');
+            newArray3 = '졌습니다';
+            결과변경(newArray3);
         }
     }
 
@@ -45,22 +55,27 @@ function App() {
         var newArray = [...내가낸것];
         newArray[0] = '보';
         내가낸것변경(newArray);
-        let 가위바위보 = ['가위', '바위', '보'];
+
         var newArray2 = [...상대가낸것];
         newArray2[0] = 가위바위보[Math.floor(Math.random() * 가위바위보.length)];
         상대가낸것변경(newArray2);
+
         if (newArray2[0] === 가위바위보[1]) {
-            console.log('you win');
+            newArray3 = '이겼습니다';
+            결과변경(newArray3);
         } else if (newArray2[0] === 가위바위보[2]) {
-            console.log('try again');
+            newArray3 = '비겼습니다';
+            결과변경(newArray3);
         } else if (newArray2[0] === 가위바위보[0]) {
-            console.log('you lose');
+            newArray3 = '졌습니다';
+            결과변경(newArray3);
         }
     }
 
     return (
         <div className="App">
             <div className="divOne">
+                <h2 className="text">{결과}</h2>
                 <div className="me">
                     <h3>{내가낸것[0]}</h3>
                 </div>
