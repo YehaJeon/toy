@@ -40,13 +40,13 @@ function App() {
         상대가낸것변경(newArray2);
 
         if (newArray2[0] === 가위바위보[0]) {
-            newArray3 = '이겼습니다';
+            newArray3 = '이겼습니다!';
             결과변경(newArray3);
         } else if (newArray2[0] === 가위바위보[1]) {
-            newArray3 = '비겼습니다';
+            newArray3 = '비겼습니다!';
             결과변경(newArray3);
         } else if (newArray2[0] === 가위바위보[2]) {
-            newArray3 = '졌습니다';
+            newArray3 = '졌습니다!';
             결과변경(newArray3);
         }
     }
