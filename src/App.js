@@ -48,6 +48,7 @@ function App() {
         } else if (newArray2[0] === 가위바위보[2]) {
             newArray3 = '졌습니다!';
             결과변경(newArray3);
+            
         }
     }
 
