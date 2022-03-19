@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
@@ -7,24 +6,28 @@ function App() {
     let [상대가낸것, 상대가낸것변경] = useState(['?']);
     let 가위바위보 = ['가위', '바위', '보'];
     let [결과, 결과변경] = useState('');
+    var newArray = [...내가낸것];
+    var newArray2 = [...상대가낸것];
     var newArray3 = '';
 
+    function 상대() {
+        newArray2[0] = 가위바위보[Math.floor(Math.random() * 가위바위보.length)];
+        상대가낸것변경(newArray2);
+    }
+
     function 가위() {
-        var newArray = [...내가낸것];
         newArray[0] = '가위';
         내가낸것변경(newArray);
 
-        var newArray2 = [...상대가낸것];
-        newArray2[0] = 가위바위보[Math.floor(Math.random() * 가위바위보.length)];
-        상대가낸것변경(newArray2);
+        상대();
 
-        if (newArray2[0] === 가위바위보[2]) {
+        if (newArray2[0] === '보') {
             newArray3 = '이겼습니다';
             결과변경(newArray3);
-        } else if (newArray2[0] === 가위바위보[0]) {
+        } else if (newArray2[0] === '가위') {
             newArray3 = '비겼습니다';
             결과변경(newArray3);
-        } else if (newArray2[0] === 가위바위보[1]) {
+        } else if (newArray2[0] === '주먹') {
             newArray3 = '졌습니다';
             결과변경(newArray3);
         }
@@ -35,20 +38,17 @@ function App() {
         newArray[0] = '바위';
         내가낸것변경(newArray);
 
-        var newArray2 = [...상대가낸것];
-        newArray2[0] = 가위바위보[Math.floor(Math.random() * 가위바위보.length)];
-        상대가낸것변경(newArray2);
+        상대();
 
-        if (newArray2[0] === 가위바위보[0]) {
+        if (newArray2[0] === '가위') {
             newArray3 = '이겼습니다!';
             결과변경(newArray3);
-        } else if (newArray2[0] === 가위바위보[1]) {
+        } else if (newArray2[0] === '바위') {
             newArray3 = '비겼습니다!';
             결과변경(newArray3);
-        } else if (newArray2[0] === 가위바위보[2]) {
+        } else if (newArray2[0] === '보') {
             newArray3 = '졌습니다!';
             결과변경(newArray3);
-            
         }
     }
 
@@ -57,17 +57,15 @@ function App() {
         newArray[0] = '보';
         내가낸것변경(newArray);
 
-        var newArray2 = [...상대가낸것];
-        newArray2[0] = 가위바위보[Math.floor(Math.random() * 가위바위보.length)];
-        상대가낸것변경(newArray2);
+        상대();
 
-        if (newArray2[0] === 가위바위보[1]) {
+        if (newArray2[0] === '주먹') {
             newArray3 = '이겼습니다';
             결과변경(newArray3);
-        } else if (newArray2[0] === 가위바위보[2]) {
+        } else if (newArray2[0] === '보') {
             newArray3 = '비겼습니다';
             결과변경(newArray3);
-        } else if (newArray2[0] === 가위바위보[0]) {
+        } else if (newArray2[0] === '가위') {
             newArray3 = '졌습니다';
             결과변경(newArray3);
         }
