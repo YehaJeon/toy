@@ -3,11 +3,12 @@ import './App.css';
 
 function App() {
     let [내가낸것, 내가낸것변경] = useState('?');
-    let [상대가낸것, 상대가낸것변경] = useState('?');
+    let [상대가낸것, 상대가낸것변경] = useState(['?']);
     let 가위바위보 = ['가위', '바위', '보'];
     let [결과, 결과변경] = useState('');
-    var newArray = [...내가낸것];
-    var newArray2 = [...상대가낸것];
+    let newArray = [...내가낸것];
+    let newArray2 = [...상대가낸것];
+    let newArray3 = '';
 
     function 상대() {
         newArray2[0] = 가위바위보[Math.floor(Math.random() * 가위바위보.length)];
@@ -21,11 +22,14 @@ function App() {
         상대();
 
         if (newArray2[0] === '보') {
-            결과변경('이겼습니다');
+            newArray3 = '이겼습니다!';
+            결과변경(newArray3);
         } else if (newArray2[0] === '가위') {
-            결과변경('비겼습니다');
-        } else if (newArray2[0] === '주먹') {
-            결과변경('졌습니다');
+            newArray3 = '비겼습니다!';
+            결과변경(newArray3);
+        } else if (newArray2[0] === '바위') {
+            newArray3 = '졌습니다!';
+            결과변경(newArray3);
         }
     }
 
@@ -36,11 +40,14 @@ function App() {
         상대();
 
         if (newArray2[0] === '가위') {
-            결과변경('이겼습니다');
+            newArray3 = '이겼습니다!';
+            결과변경(newArray3);
         } else if (newArray2[0] === '바위') {
-            결과변경('비겼습니다');
+            newArray3 = '비겼습니다!';
+            결과변경(newArray3);
         } else if (newArray2[0] === '보') {
-            결과변경('졌습니다');
+            newArray3 = '졌습니다!';
+            결과변경(newArray3);
         }
     }
 
@@ -51,11 +58,14 @@ function App() {
         상대();
 
         if (newArray2[0] === '주먹') {
-            결과변경('이겼습니다');
+            newArray3 = '이겼습니다';
+            결과변경(newArray3);
         } else if (newArray2[0] === '보') {
-            결과변경('비겼습니다');
+            newArray3 = '비겼습니다';
+            결과변경(newArray3);
         } else if (newArray2[0] === '가위') {
-            결과변경('졌습니다');
+            newArray3 = '졌습니다';
+            결과변경(newArray3);
         }
     }
 
@@ -64,7 +74,7 @@ function App() {
             <div className="divOne">
                 <h2 className="text">{결과}</h2>
                 <div className="me">
-                    <h3>{내가낸것}</h3>
+                    <h3>{newArray}</h3>
                 </div>
 
                 <div className="buttonDiv">
@@ -82,7 +92,7 @@ function App() {
             </div>
             <div className="divTwo">
                 <div className="computer">
-                    <h3>{상대가낸것[0]}</h3>
+                    <h3>{newArray2[0]}</h3>
                 </div>
             </div>
         </div>
