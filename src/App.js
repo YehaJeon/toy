@@ -58,10 +58,10 @@ function App() {
         상대();
 
         if (newArray2[0] === '주먹') {
-            newArray3 = '이겼습니다';
+            newArray3 = '이겼습니다!';
             결과변경(newArray3);
         } else if (newArray2[0] === '보') {
-            newArray3 = '비겼습니다';
+            newArray3 = '비겼습니다!';
             결과변경(newArray3);
         } else if (newArray2[0] === '가위') {
             newArray3 = '졌습니다';
