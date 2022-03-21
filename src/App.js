@@ -64,7 +64,7 @@ function App() {
             newArray3 = '비겼습니다!';
             결과변경(newArray3);
         } else if (newArray2[0] === '가위') {
-            newArray3 = '졌습니다';
+            newArray3 = '졌습니다!';
             결과변경(newArray3);
         }
     }
