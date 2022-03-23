@@ -9,8 +9,8 @@ function App() {
     let newArray = [...내가낸것];
     let newArray2 = [...상대가낸것];
     let newArray3 = '';
-    let [내점수, 내점수변경] = useState('0');
-    let myCount = [...내점수];
+    let [내점수, 내점수변경] = useState(0);
+    let [상대점수, 상대점수변경] = useState(0);
 
     function 상대() {
         newArray2[0] = 가위바위보[Math.floor(Math.random() * 가위바위보.length)];
@@ -20,21 +20,21 @@ function App() {
     function 가위() {
         newArray = '가위';
         내가낸것변경(newArray);
-        myCount = 0;
 
         상대();
 
         if (newArray2[0] === '보') {
             newArray3 = '이겼습니다!';
             결과변경(newArray3);
-            myCount++;
-            내점수변경(myCount);
+
+            내점수변경(내점수 + 1);
         } else if (newArray2[0] === '가위') {
             newArray3 = '비겼습니다!';
             결과변경(newArray3);
         } else if (newArray2[0] === '바위') {
             newArray3 = '졌습니다!';
             결과변경(newArray3);
+            상대점수변경(상대점수 + 1);
         }
     }
 
@@ -47,12 +47,14 @@ function App() {
         if (newArray2[0] === '가위') {
             newArray3 = '이겼습니다!';
             결과변경(newArray3);
+            내점수변경(내점수 + 1);
         } else if (newArray2[0] === '바위') {
             newArray3 = '비겼습니다!';
             결과변경(newArray3);
         } else if (newArray2[0] === '보') {
             newArray3 = '졌습니다!';
             결과변경(newArray3);
+            상대점수변경(상대점수 + 1);
         }
     }
 
@@ -65,12 +67,14 @@ function App() {
         if (newArray2[0] === '주먹') {
             newArray3 = '이겼습니다!';
             결과변경(newArray3);
+            내점수변경(내점수 + 1);
         } else if (newArray2[0] === '보') {
             newArray3 = '비겼습니다!';
             결과변경(newArray3);
         } else if (newArray2[0] === '가위') {
             newArray3 = '졌습니다!';
             결과변경(newArray3);
+            상대점수변경(상대점수 + 1);
         }
     }
 
@@ -100,6 +104,9 @@ function App() {
             <div className="divTwo">
                 <div className="computer">
                     <h3>{newArray2[0]}</h3>
+                </div>
+                <div>
+                    <h2>{상대점수}</h2>
                 </div>
             </div>
         </div>
