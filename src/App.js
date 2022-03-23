@@ -9,6 +9,8 @@ function App() {
     let newArray = [...내가낸것];
     let newArray2 = [...상대가낸것];
     let newArray3 = '';
+    let [내점수, 내점수변경] = useState('0');
+    let myCount = [...내점수];
 
     function 상대() {
         newArray2[0] = 가위바위보[Math.floor(Math.random() * 가위바위보.length)];
@@ -18,12 +20,15 @@ function App() {
     function 가위() {
         newArray = '가위';
         내가낸것변경(newArray);
+        myCount = 0;
 
         상대();
 
         if (newArray2[0] === '보') {
             newArray3 = '이겼습니다!';
             결과변경(newArray3);
+            myCount++;
+            내점수변경(myCount);
         } else if (newArray2[0] === '가위') {
             newArray3 = '비겼습니다!';
             결과변경(newArray3);
@@ -76,7 +81,9 @@ function App() {
                 <div className="me">
                     <h3>{newArray}</h3>
                 </div>
-
+                <div className="countDiv">
+                    <h2>{내점수}</h2>
+                </div>
                 <div className="buttonDiv">
                     <button className="btn1" onClick={가위}>
                         가위
