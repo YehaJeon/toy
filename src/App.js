@@ -32,7 +32,7 @@ function App() {
             newArray3 = '비겼습니다!';
             결과변경(newArray3);
         } else if (newArray2[0] === '바위') {
-            newArray3 = '졌습니다!';
+            newArray3 = '졌습니다';
             결과변경(newArray3);
             상대점수변경(상대점수 + 1);
         }
